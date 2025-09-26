@@ -78,28 +78,37 @@ const books = [
   }
 ];
 
-console.log(books); 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [readingList, setReadingList] = useState([]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
   };
 
   const removeBook = (id) => {
-    console.log("Removing Book with ID: ", id);
-    //removeBook logic later
+    setReadingList((prev) => prev.filter((b) => b.id !== id));
   }
 
   const addBook = (id) => {
-    console.log("Add Book with ID: ", id);
-    //addBook logic later
+    const bookToAdd = books.find((b) => b.id === id);
+
+    if(!bookToAdd){
+      return;
+    }
+
+    setReadingList((prevList) =>{
+      if(prevList.some((b) => b.id === id)){
+        return prevList;
+      }
+      return [...prevList, bookToAdd]
+    });
   }
 
   return (
     <>
       <Navbar toggleSidebar={toggleSidebar} />
-      <SideBar isOpen={isSidebarOpen} books={books} removeBook={removeBook} />
+      <SideBar isOpen={isSidebarOpen} books={readingList} removeBook={removeBook} />
       <div className={`app-container ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <MainBody books={books} onAdd={addBook} />
       </div>

@@ -9,7 +9,7 @@ function SideBar(props) {
 			<div className="book-list">
 				{props.books.map((book) => (
 					//Later Replace this with BookCard.jsx
-					<BookCard key={book.id} book={book} variant="sidebar" onAction={props.removeBook} />
+					<BookCard key={book.id} book={book} variant="sidebar" onAction={() => props.removeBook(book.id)} />
 				))}
 			</div>
 		</div>

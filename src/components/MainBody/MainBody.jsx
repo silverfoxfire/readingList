@@ -7,7 +7,7 @@ function MainBody(props){
 		<div className="main-body">
 			<div className="book-list">
 				{props.books.map((book) => (
-					<BookCard key={book.id} book={book} variant="main" onAction={props.onAdd} />
+					<BookCard key={book.id} book={book} variant="main" onAction={() => props.onAdd(book.id)} />
 				))}
 			</div>
 		</div>
