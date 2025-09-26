@@ -1,13 +1,13 @@
 import React from "react";
 import "./Navbar.css";
 
-function NavBar() {
+function NavBar(props) {
   return (
 	<nav className="navbar">
 
 		<div className="navbar-left">
+			<button className="reading-list-button" onClick={props.toggleSidebar}>
 			<i className="fas fa-bars reading-list-icon"></i>
-			<button className="reading-list-button" aria-label="Reading List">
 			</button>
 
 			<div className="navbar-logo">
