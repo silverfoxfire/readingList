@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from "./components/Navbar/Navbar";
 import SideBar from "./components/SideBar/SideBar";
+import MainBody from "./components/MainBody/MainBody";
 import "./App.css";
 
 //Temp Book Array
@@ -83,7 +84,6 @@ function App() {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
-    console.log(isSidebarOpen);
   };
 
   const removeBook = (id) => {
@@ -91,12 +91,17 @@ function App() {
     //removeBook logic later
   }
 
+  const addBook = (id) => {
+    console.log("Add Book with ID: ", id);
+    //addBook logic later
+  }
+
   return (
     <>
       <Navbar toggleSidebar={toggleSidebar} />
       <SideBar isOpen={isSidebarOpen} books={books} removeBook={removeBook} />
       <div className={`app-container ${isSidebarOpen ? "sidebar-open" : ""}`}>
-        <p>Hello world</p>
+        <MainBody books={books} onAdd={addBook} />
       </div>
     </>
   )

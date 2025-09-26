@@ -1,4 +1,4 @@
-.book-card {
+.sidebar .book-card {
   display: flex;
   background-color: #2c2c2c;
   padding: 0.75rem;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.book-cover {
+.sidebar .book-cover {
   width: 50px;
   height: 75px;
   object-fit: cover;
@@ -14,16 +14,16 @@
   margin-right: 1rem;
 }
 
-.book-info {
+.sidebar .book-info {
   flex-grow: 1;
 }
 
-.book-title {
+.sidebar .book-title {
   font-size: 1.1rem;
   margin: 0;
 }
 
-.book-author {
+.sidebar .book-author {
   font-size: 0.9rem;
   color: #ccc;
   margin: 0.25rem 0;
@@ -42,3 +42,97 @@
 .remove-button:hover {
   background: #A784E2;
 }
+
+
+/* Main Body */
+.main-body .book-card {
+  display: flex;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  color: black;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 5px solid #8A63D2; 
+}
+
+.main-body .book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Book Cover */
+.main-body .book-cover {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px; 
+  flex-shrink: 0;
+  border: 1px solid #ddd; 
+}
+
+/* Book Info */
+.main-body .book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Title & Author */
+.main-body .book-title {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.main-body .book-author {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.25rem 0;
+}
+
+/* Description */
+.main-body .book-description {
+  font-size: 0.9rem;
+  color: #333;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+  padding-right: 0.25rem;
+}
+
+/* Button */
+.main-body .book-info button {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #8A63D2;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.main-body .book-info button:hover {
+  background-color: #A784E2;
+  transform: scale(1.05);
+}
+
+/* Optional: scrollbar styling */
+.main-body .book-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-body .book-description::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}
+
+.main-body .book-description::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+
