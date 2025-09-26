@@ -2,15 +2,10 @@
   display: flex;
   flex-direction: column;
   transition: margin-left 0.3s ease;
+  padding: 2rem;
 }
 
-/* Push navbar/logo and main content to the right when sidebar is open */
+/* Push main content to the right when sidebar is open */
 .app-container.sidebar-open {
   margin-left: 33vw; 
-}
-
-/* Main content */
-.main-content {
-  padding: 2rem;
-  transition: margin-left 0.3s ease;
 }
