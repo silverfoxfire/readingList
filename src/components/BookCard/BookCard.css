@@ -1,0 +1,44 @@
+.book-card {
+  display: flex;
+  background-color: #2c2c2c;
+  padding: 0.75rem;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.book-cover {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+.book-info {
+  flex-grow: 1;
+}
+
+.book-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0.25rem 0;
+}
+
+.remove-button {
+  background: #8A63D2;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-button:hover {
+  background: #A784E2;
+}
