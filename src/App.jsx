@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from "./components/Navbar/Navbar";
 import SideBar from "./components/SideBar/SideBar";
 import MainBody from "./components/MainBody/MainBody";
@@ -81,10 +81,19 @@ const books = [
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [readingList, setReadingList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("#-#");
+
+  useEffect(() => {
+    console.log("Current search query:", searchQuery);
+  }, [searchQuery]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
   };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  }
 
   const removeBook = (id) => {
     setReadingList((prev) => prev.filter((b) => b.id !== id));
@@ -107,7 +116,7 @@ function App() {
 
   return (
     <>
-      <Navbar toggleSidebar={toggleSidebar} />
+      <Navbar toggleSidebar={toggleSidebar} onSearch={handleSearch} />
       <SideBar isOpen={isSidebarOpen} books={readingList} removeBook={removeBook} />
       <div className={`app-container ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <MainBody books={books} onAdd={addBook} />
